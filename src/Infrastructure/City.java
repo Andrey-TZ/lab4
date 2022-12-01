@@ -1,12 +1,17 @@
 package Infrastructure;
 
-public abstract class City {
-    protected String name;
-    protected int population;
-    protected Road[] roads;
+import utils.Renamed;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+public abstract class City implements Renamed {
+    private String name;
+    private int population;
+    private final Road[] roads;
     private int i_roads = 0;
-    protected House[] houses;
-    protected PowerLine[] powerlines;
+    private final House[] houses;
+    private final PowerLine[] powerlines;
 
     public City(String name, int roads, int houses, int powerlines) {
         this.roads = new Road[roads];
@@ -39,5 +44,32 @@ public abstract class City {
 
     public PowerLine[] getPowerLines() {
         return powerlines;
+    }
+
+    @Override
+    public void rename(String name){
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, roads, houses, powerlines);
+    }
+
+    @Override
+    public boolean equals(Object city) {
+        if (city == this) {
+            return true;
+        }
+        if (city == null || city.getClass() != getClass()) {
+            return false;
+        }
+        City city1 = (City) city;
+        return city1.getName().equals(this.name) && Arrays.equals(city1.houses, this.houses) && Arrays.equals(city1.getRoads(), this.roads) && Arrays.equals(((City) city).getPowerLines(), this.powerlines);
     }
 }

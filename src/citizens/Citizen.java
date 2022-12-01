@@ -12,11 +12,12 @@ public abstract class Citizen {
         this.native_city = city;
         this.city = city;
     }
-
-    abstract public void work();
-
     public void travel(City city){
         this.city = city;
         System.out.println(this.name + "переехал в" + city.getName());
+    }
+
+    public City getCity() {
+        return city;
     }
 }

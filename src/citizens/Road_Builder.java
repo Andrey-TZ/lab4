@@ -3,7 +3,7 @@ package citizens;
 import Infrastructure.City;
 import utils.Renamed;
 
-public class Road_Builder extends Citizen implements Renamed {
+public class Road_Builder extends Citizen implements Renamed, StandartWorker {
     Road_Builder(String name, int age, City city) {
         super(name, age, city);
 

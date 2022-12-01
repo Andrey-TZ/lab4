@@ -10,4 +10,8 @@ public abstract class City_object {
         this.city = city;
         this.color = color;
     }
+
+    public City getCity(){
+        return city;
+    }
 }
