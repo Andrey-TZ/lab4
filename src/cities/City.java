@@ -1,5 +1,8 @@
-package Infrastructure;
+package cities;
 
+import Objects.House;
+import Objects.PowerLine;
+import Objects.Road;
 import utils.Renamed;
 
 import java.util.Arrays;
@@ -58,7 +61,7 @@ public abstract class City implements Renamed {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, roads, houses, powerlines);
+        return 31 * Objects.hash(name, roads, houses, powerlines);
     }
 
     @Override

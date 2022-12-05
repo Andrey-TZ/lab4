@@ -1,6 +1,6 @@
 package citizens;
 
-import Infrastructure.City;
+import cities.City;
 import utils.Color;
 
 import java.util.Random;
@@ -18,7 +18,7 @@ public class Tubik extends Citizen {
         Color color = Color.values()[color_number];
         System.out.println(color);
         this.color_given = color;
-        System.out.println(name + " выбрал " + color.toString() + "для покраски");
+        System.out.println(this + " выбрал " + color + "для покраски");
         return color_given;
     }
 }

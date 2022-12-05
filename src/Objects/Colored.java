@@ -1,5 +1,6 @@
-package Infrastructure;
+package Objects;
 
+import cities.City;
 import utils.Color;
 
 public interface Colored {

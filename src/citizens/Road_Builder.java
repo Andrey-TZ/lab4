@@ -1,6 +1,6 @@
 package citizens;
 
-import Infrastructure.City;
+import cities.City;
 import utils.Renamed;
 
 public class Road_Builder extends Citizen implements Renamed, StandartWorker {
@@ -16,6 +16,6 @@ public class Road_Builder extends Citizen implements Renamed, StandartWorker {
 
     @Override
     public void rename(String new_name) {
-        this.name = new_name;
+        this.setName(new_name);
     }
 }

@@ -1,15 +1,16 @@
-package Infrastructure;
+package Objects;
 
+import cities.City;
 import utils.Color;
 
-public class House extends City_object implements Colored{
+public class House extends City_object implements Colored {
     House(City city) {
-        super(city, Color.BROWN);
+        super(city, Color.BROWN, ObjectType.HOUSE);
     }
 
     @Override
     public void change_color(Color color) {
-        this.color = color;
+        setColor(color);
     }
 
     @Override
@@ -19,6 +20,6 @@ public class House extends City_object implements Colored{
 
     @Override
     public String toString(){
-        return "дом";
+        return getColor() + "дом";
     }
 }

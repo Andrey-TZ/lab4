@@ -1,6 +1,4 @@
-package Infrastructure;
-
-import utils.Renamed;
+package cities;
 
 public class BigCity extends City {
     BigCity(String name){
