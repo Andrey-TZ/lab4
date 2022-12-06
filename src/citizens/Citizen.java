@@ -6,17 +6,20 @@ import java.util.Objects;
 
 public abstract class Citizen {
     private String name;
-    private int age;
-    private City native_city, city;
+    private final int age;
+    private final City native_city;
+    private City city;
     Citizen(String name, int age, City city){
         this.name = name;
         this.age = age;
         this.native_city = city;
         this.city = city;
+        System.out.println(this + " приехал в " + city);
+        System.out.println("Теперь это его родной город на Луне!");
     }
     public void travel(City city){
         this.city = city;
-        System.out.println(this.name + "переехал в" + city.getName());
+        System.out.println(this.name + " переехал в " + city.getName());
     }
 
     void setName(String new_name){

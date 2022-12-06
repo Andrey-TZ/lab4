@@ -1,7 +1,7 @@
 package cities;
 
 public class SmallCity extends City {
-    SmallCity(String name){
+    public SmallCity(String name){
         super(name, 10, 11, 5);
     }
 }

@@ -41,4 +41,9 @@ public abstract class City_object {
 
     @Override
     public int hashCode(){return 31 * Objects.hash(city, color, type);}
+
+    @Override
+    public String toString(){
+        return type.toString();
+    }
 }

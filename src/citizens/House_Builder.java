@@ -1,11 +1,12 @@
 package citizens;
 
+import Objects.House;
 import Objects.PowerLine;
 import cities.City;
 import utils.Renamed;
 
-public class PowerLine_Builder extends Citizen implements Renamed, StandartWorker{
-    public PowerLine_Builder(String name, int age, City city) {
+public class House_Builder extends Citizen implements StandartWorker, Renamed {
+    public House_Builder(String name, int age, City city) {
         super(name, age, city);
     }
 
@@ -13,9 +14,9 @@ public class PowerLine_Builder extends Citizen implements Renamed, StandartWorke
     public void work() {
         System.out.print(this );
         City city = this.getCity();
-        new PowerLine(city);
+        House house = new House(city);
         System.out.println(city);
-        System.out.println("Теперь их здесь " + city.getI_powerlines());
+        System.out.println("Теперь их здесь " + city.getI_houses());
     }
 
     @Override

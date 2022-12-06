@@ -3,6 +3,7 @@ package cities;
 import Objects.House;
 import Objects.PowerLine;
 import Objects.Road;
+import Objects.City_object;
 import utils.Renamed;
 
 import java.util.Arrays;
@@ -10,18 +11,16 @@ import java.util.Objects;
 
 public abstract class City implements Renamed {
     private String name;
-    private int population;
-    private final Road[] roads;
-    private int i_roads = 0;
-    private final House[] houses;
-    private final PowerLine[] powerlines;
+    private final City_object[] roads;
+    private int i_roads = 0, i_houses = 0 , i_powerlines = 0;
+    private final City_object[] houses;
+    private final City_object[] powerlines;
 
     public City(String name, int roads, int houses, int powerlines) {
         this.roads = new Road[roads];
         this.houses = new House[houses];
         this.powerlines = new PowerLine[powerlines];
         this.name = name;
-        this.population = 1;
     }
 
     public String getName() {
@@ -29,25 +28,55 @@ public abstract class City implements Renamed {
     }
 
     public void add_road(Road road) {
-        if (roads.length >= 10) {
-            System.out.println("Не удалось построить дорогу: в городе их слишком много");
-        } else {
+        try{
             roads[i_roads] = road;
-            i_roads += 1;
+            i_roads ++;
+            System.out.print(" построил дорогу в городе ");
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.print( " не смог построить дорогу: их слишком много в городе ");
         }
     }
 
-    public Road[] getRoads() {
+    public void add_house(House house){
+        try{
+            houses[i_houses] = house;
+            i_houses ++;
+            System.out.print(" построил дом в городе ");
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.print( " не смог построить дом: их слишком много в городе ");
+        }
+    }
+
+    public void add_powerline(PowerLine powerLine){
+        try{
+            powerlines[i_powerlines] = powerLine;
+            i_powerlines ++;
+            System.out.print(" построл ЛЭП в городе ");
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.print(" не смог построить ЛЭП: их слишком много в городе ");
+        }
+    }
+
+    public City_object[] getRoads() {
         return roads;
     }
 
-    public House[] getHouses() {
+    public City_object[] getHouses() {
         return houses;
     }
 
-    public PowerLine[] getPowerLines() {
+    public City_object[] getPowerLines() {
         return powerlines;
     }
+
+    public int getI_roads(){return i_roads;}
+
+    public int getI_houses(){return i_houses;}
+
+    public int getI_powerlines(){return i_powerlines;}
 
     @Override
     public void rename(String name){
@@ -73,6 +102,6 @@ public abstract class City implements Renamed {
             return false;
         }
         City city1 = (City) city;
-        return city1.getName().equals(this.name) && Arrays.equals(city1.houses, this.houses) && Arrays.equals(city1.getRoads(), this.roads) && Arrays.equals(((City) city).getPowerLines(), this.powerlines);
+        return city1.getName().equals(this.name) && Arrays.equals(city1.getHouses(), this.houses) && Arrays.equals(city1.getRoads(), this.roads) && Arrays.equals(city1.getPowerLines(), this.powerlines);
     }
 }

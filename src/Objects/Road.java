@@ -4,7 +4,8 @@ import cities.City;
 import utils.Color;
 
 public class Road extends City_object {
-    Road(City city){
+    public Road(City city){
         super(city, Color.GREY, ObjectType.ROAD);
+        city.add_road(this);
     }
 }
