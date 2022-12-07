@@ -1,29 +1,23 @@
 package utils;
 
 public enum Color {
-    RED,
-    YELLOW,
-    GREEN,
-    BLUE,
-    WHITE,
-    GREY,
-    BLACK,
-    PURPLE,
-    BROWN;
+    RED("Красный"),
+    YELLOW("Жёлтый"),
+    GREEN("Зелёный"),
+    BLUE("Голубой"),
+    WHITE("Белый"),
+    GREY("Серый"),
+    BLACK("Чёрный"),
+    PURPLE("Сиреневый"),
+    BROWN("Коричневый");
+    private String word;
+    Color(String word){
+        this.word = word;
+    }
 
 
     @Override
     public String toString() {
-        return switch (this) {
-            case RED -> "Красный";
-            case YELLOW -> "Жёлтый";
-            case GREEN -> "Зелёный";
-            case BLUE -> "Голубой";
-            case WHITE -> "Белый";
-            case GREY -> "Серый";
-            case BLACK -> "Чёрный";
-            case PURPLE -> "Сиреневый";
-            case BROWN -> "Коричневый";
-        };
+        return word;
     }
 }

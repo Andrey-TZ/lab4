@@ -2,6 +2,7 @@ package Objects;
 
 import cities.City;
 import utils.Color;
+import utils.Colored;
 
 public class House extends City_object implements Colored {
     public House(City city) {
@@ -12,11 +13,6 @@ public class House extends City_object implements Colored {
     @Override
     public void change_color(Color color) {
         setColor(color);
-    }
-
-    @Override
-    public City get_city() {
-        return this.getCity();
     }
 
     @Override

@@ -1,14 +1,12 @@
 package Objects;
 
 public enum ObjectType {
-    HOUSE, POWERLINE, ROAD;
+    HOUSE("дом"), POWERLINE("линия электропередачи"), ROAD("Дорога");
+    private String name;
+    ObjectType(String name){this.name = name;}
 
     @Override
     public String toString(){
-        return switch (this){
-            case HOUSE -> "дом";
-            case POWERLINE -> "линия электропередачи";
-            case ROAD -> "Дорога";
-        };
+        return name;
     }
 }

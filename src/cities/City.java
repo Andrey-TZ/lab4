@@ -3,7 +3,6 @@ package cities;
 import Objects.House;
 import Objects.PowerLine;
 import Objects.Road;
-import Objects.City_object;
 import utils.Renamed;
 
 import java.util.Arrays;
@@ -11,12 +10,12 @@ import java.util.Objects;
 
 public abstract class City implements Renamed {
     private String name;
-    private final City_object[] roads;
+    private final Road[] roads;
     private int i_roads = 0, i_houses = 0 , i_powerlines = 0;
-    private final City_object[] houses;
-    private final City_object[] powerlines;
+    private final House[] houses;
+    private final PowerLine[] powerlines;
 
-    public City(String name, int roads, int houses, int powerlines) {
+    City(String name, int roads, int houses, int powerlines) {
         this.roads = new Road[roads];
         this.houses = new House[houses];
         this.powerlines = new PowerLine[powerlines];
@@ -60,15 +59,15 @@ public abstract class City implements Renamed {
         }
     }
 
-    public City_object[] getRoads() {
+    public Road[] getRoads() {
         return roads;
     }
 
-    public City_object[] getHouses() {
+    public House[] getHouses() {
         return houses;
     }
 
-    public City_object[] getPowerLines() {
+    public PowerLine[] getPowerLines() {
         return powerlines;
     }
 

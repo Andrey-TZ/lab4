@@ -1,5 +1,4 @@
-import Objects.Colored;
-import Objects.ObjectType;
+import utils.Colored;
 import cities.BigCity;
 import cities.*;
 import citizens.*;

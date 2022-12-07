@@ -2,10 +2,11 @@ package Objects;
 
 import cities.City;
 import utils.Color;
+import utils.InCity;
 
 import java.util.Objects;
 
-public abstract class City_object {
+public abstract class City_object implements InCity {
     private City city;
     private Color color;
     private ObjectType type;
@@ -16,7 +17,7 @@ public abstract class City_object {
         this.type = type;
     }
 
-
+    @Override
     public City getCity() {
         return city;
     }

@@ -1,10 +1,11 @@
 package citizens;
 
 import cities.City;
+import utils.InCity;
 
 import java.util.Objects;
 
-public abstract class Citizen {
+public abstract class Citizen implements InCity {
     private String name;
     private final int age;
     private final City native_city;
@@ -26,6 +27,7 @@ public abstract class Citizen {
         this.name = new_name;
     }
 
+    @Override
     public City getCity() {
         return city;
     }
