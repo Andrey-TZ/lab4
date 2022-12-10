@@ -16,7 +16,7 @@ public class Painter extends Citizen implements Renamed {
         if (obj.getCity().hashCode() == this.getCity().hashCode()) {
             System.out.print(this + " покрасил " + obj + "в ");
             obj.change_color(color);
-            System.out.println(color.toString());
+            System.out.println(color);
         }
         else{
             System.out.println(this + " находится не в том же городе, что и " + obj);

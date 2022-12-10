@@ -7,7 +7,7 @@ import utils.Colored;
 public class House extends City_object implements Colored {
     public House(City city) {
         super(city, Color.BROWN, ObjectType.HOUSE);
-        city.add_house(this);
+        city.addCityObject(this);
     }
 
     @Override

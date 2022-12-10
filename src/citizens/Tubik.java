@@ -25,7 +25,7 @@ public class Tubik extends Citizen {
     public Color give_color() {
         int color_number = new Random().nextInt(9);
         Color color = Color.values()[color_number];
-        System.out.println("Тюбик выбрал " + color + " для покраски");
+        System.out.println("Тюбик выбрал " + color + " цвет для покраски");
         return color;
     }
 }

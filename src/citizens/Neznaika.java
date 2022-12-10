@@ -1,9 +1,8 @@
 package citizens;
 
-import cities.BigCity;
 import cities.City;
-import cities.CustomCity;
-import cities.SmallCity;
+
+import cities.StandartCity;
 
 public class Neznaika extends Citizen{
     private static boolean amount = false;
@@ -11,18 +10,18 @@ public class Neznaika extends Citizen{
 
     public City create_BigCity(String name){
         System.out.println(this + " основал новый большой город: " + name);
-        return new BigCity(name);
+        return new StandartCity(name, 30, 30, 30);
 
     }
 
     public City create_SmallCity(String name){
         System.out.println(this + " основал новый маленький город: " + name);
-        return new SmallCity(name);
+        return new StandartCity(name, 10, 10, 10);
     }
 
     public City create_CustomCity(String name,  int roads, int houses, int powerlines){
         System.out.println(this + " основал новый город: " + name);
-        return new CustomCity(name, roads, houses, powerlines);
+        return new StandartCity(name, roads, houses, powerlines);
     }
 
     public static Neznaika create(int age, City city){

@@ -1,22 +1,24 @@
 package citizens;
 
+import Objects.City_object;
 import Objects.House;
-import Objects.PowerLine;
+import Objects.ObjectType;
 import cities.City;
 import utils.Renamed;
 
-public class House_Builder extends Citizen implements StandartWorker, Renamed {
+public class House_Builder extends Citizen implements Builder, Renamed {
     public House_Builder(String name, int age, City city) {
         super(name, age, city);
     }
 
     @Override
-    public void work() {
+    public City_object build() {
         System.out.print(this );
         City city = this.getCity();
         House house = new House(city);
         System.out.println(city);
-        System.out.println("Теперь их здесь " + city.getI_houses());
+        System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.HOUSE));
+        return house;
     }
 
     @Override
