@@ -1,8 +1,8 @@
 package citizens;
 
-import Objects.City_object;
-import Objects.House;
-import Objects.ObjectType;
+import objects.CityObject;
+import objects.House;
+import objects.ObjectType;
 import cities.City;
 import utils.Renamed;
 
@@ -12,7 +12,7 @@ public class House_Builder extends Citizen implements Builder, Renamed {
     }
 
     @Override
-    public City_object build() {
+    public CityObject build() {
         System.out.print(this );
         City city = this.getCity();
         House house = new House(city);

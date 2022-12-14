@@ -1,7 +1,7 @@
 package citizens;
 
-import Objects.City_object;
+import objects.CityObject;
 
 public interface Builder {
-    public City_object build();
+    public CityObject build();
 }

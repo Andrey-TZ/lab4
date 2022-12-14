@@ -1,6 +1,5 @@
 package citizens;
 
-import Objects.City_object;
 import cities.City;
 import utils.Colored;
 import utils.Color;

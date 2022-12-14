@@ -1,4 +1,4 @@
-package Objects;
+package objects;
 
 public enum ObjectType {
     HOUSE("дом"), POWERLINE("линия электропередачи"), ROAD("дорога");

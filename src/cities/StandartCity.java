@@ -1,10 +1,10 @@
 package cities;
 
-import Objects.House;
-import Objects.PowerLine;
-import Objects.Road;
-import Objects.ObjectType;
-import Objects.City_object;
+import objects.House;
+import objects.PowerLine;
+import objects.Road;
+import objects.ObjectType;
+import objects.CityObject;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class StandartCity extends City {
 
     }
 
-    public void addCityObject(City_object obj) {
+    public void addCityObject(CityObject obj) {
         ObjectType type = obj.getType();
         try {
             switch (type) {

@@ -1,4 +1,4 @@
-package Objects;
+package objects;
 
 import cities.City;
 import utils.Color;
@@ -6,12 +6,12 @@ import utils.InCity;
 
 import java.util.Objects;
 
-public abstract class City_object implements InCity {
+public abstract class CityObject implements InCity {
     private City city;
     private Color color;
     private ObjectType type;
 
-    City_object(City city, Color color, ObjectType type) {
+    CityObject(City city, Color color, ObjectType type) {
         this.city = city;
         this.color = color;
         this.type = type;
@@ -36,7 +36,7 @@ public abstract class City_object implements InCity {
         if (oth == null || oth.getClass() != getClass()) {
             return false;
         }
-        City_object other = (City_object) oth;
+        CityObject other = (CityObject) oth;
         return other.getCity().equals(city) && other.getColor().equals(color) && other.getType() == type;
     }
 

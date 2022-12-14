@@ -1,8 +1,8 @@
 package citizens;
 
-import Objects.City_object;
-import Objects.ObjectType;
-import Objects.Road;
+import objects.CityObject;
+import objects.ObjectType;
+import objects.Road;
 import cities.City;
 import utils.Renamed;
 
@@ -13,7 +13,7 @@ public class Road_Builder extends Citizen implements Renamed, Builder {
     }
 
     @Override
-    public City_object build() {
+    public CityObject build() {
             System.out.print(this );
             City city = this.getCity();
             Road road = new Road(city);

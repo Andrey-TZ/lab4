@@ -3,8 +3,8 @@ package cities;
 
 import utils.Renamed;
 
-import Objects.ObjectType;
-import Objects.City_object;
+import objects.ObjectType;
+import objects.CityObject;
 import java.util.Objects;
 
 public abstract class City implements Renamed {
@@ -22,7 +22,7 @@ public abstract class City implements Renamed {
 
     abstract public int getCityObjects(ObjectType type);
 
-    abstract public void addCityObject(City_object obj);
+    abstract public void addCityObject(CityObject obj);
 
 
 

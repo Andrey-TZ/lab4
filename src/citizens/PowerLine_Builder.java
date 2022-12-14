@@ -1,8 +1,8 @@
 package citizens;
 
-import Objects.City_object;
-import Objects.ObjectType;
-import Objects.PowerLine;
+import objects.CityObject;
+import objects.ObjectType;
+import objects.PowerLine;
 import cities.City;
 import utils.Renamed;
 
@@ -12,7 +12,7 @@ public class PowerLine_Builder extends Citizen implements Renamed, Builder {
     }
 
     @Override
-    public City_object build() {
+    public CityObject build() {
         System.out.print(this );
         City city = this.getCity();
         PowerLine pwr_line = new PowerLine(city);

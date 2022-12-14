@@ -1,10 +1,10 @@
-package Objects;
+package objects;
 
 import cities.City;
 import utils.Color;
 import utils.Colored;
 
-public class House extends City_object implements Colored {
+public class House extends CityObject implements Colored {
     public House(City city) {
         super(city, Color.BROWN, ObjectType.HOUSE);
         city.addCityObject(this);
