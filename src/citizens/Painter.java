@@ -1,7 +1,7 @@
 package citizens;
 
 import cities.City;
-import utils.Colored;
+import utils.Recolored;
 import utils.Color;
 import utils.Renamed;
 
@@ -11,7 +11,7 @@ public class Painter extends Citizen implements Renamed {
     }
 
 
-    public void paint(Colored obj, Color color) {
+    public void paint(Recolored obj, Color color) {
         if (obj.getCity().hashCode() == this.getCity().hashCode()) {
             System.out.print(this + " покрасил " + obj + "в ");
             obj.change_color(color);

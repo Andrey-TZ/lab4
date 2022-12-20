@@ -2,9 +2,9 @@ package objects;
 
 import cities.City;
 import utils.Color;
-import utils.Colored;
+import utils.Recolored;
 
-public class House extends CityObject implements Colored {
+public class House extends CityObject implements Recolored {
     public House(City city) {
         super(city, Color.BROWN, ObjectType.HOUSE);
         city.addCityObject(this);

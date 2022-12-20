@@ -6,8 +6,8 @@ import objects.Road;
 import cities.City;
 import utils.Renamed;
 
-public class Road_Builder extends Citizen implements Renamed, Builder {
-    public Road_Builder(String name, int age, City city) {
+public class RoadBuilder extends Citizen implements Renamed, Builder {
+    public RoadBuilder(String name, int age, City city) {
         super(name, age, city);
 
     }

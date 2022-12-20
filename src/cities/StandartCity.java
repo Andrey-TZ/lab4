@@ -22,7 +22,7 @@ public class StandartCity extends City {
         this.powerlines = new PowerLine[powerlines];
 
     }
-
+    @Override
     public void addCityObject(CityObject obj) {
         ObjectType type = obj.getType();
         try {

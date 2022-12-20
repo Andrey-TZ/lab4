@@ -1,13 +1,13 @@
 package citizens;
 
 import objects.CityObject;
-import objects.House;
 import objects.ObjectType;
+import objects.PowerLine;
 import cities.City;
 import utils.Renamed;
 
-public class House_Builder extends Citizen implements Builder, Renamed {
-    public House_Builder(String name, int age, City city) {
+public class PowerLineBuilder extends Citizen implements Renamed, Builder {
+    public PowerLineBuilder(String name, int age, City city) {
         super(name, age, city);
     }
 
@@ -15,10 +15,10 @@ public class House_Builder extends Citizen implements Builder, Renamed {
     public CityObject build() {
         System.out.print(this );
         City city = this.getCity();
-        House house = new House(city);
+        PowerLine pwr_line = new PowerLine(city);
         System.out.println(city);
-        System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.HOUSE));
-        return house;
+        System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.POWERLINE));
+        return pwr_line;
     }
 
     @Override

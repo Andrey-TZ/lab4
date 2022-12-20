@@ -1,5 +1,5 @@
 import objects.CityObject;
-import utils.Colored;
+import utils.Recolored;
 
 import cities.*;
 import citizens.*;
@@ -11,9 +11,9 @@ public class Main {
         Neznaika neznaika = Neznaika.create(21, capital);
         City noyabrsk = neznaika.create_SmallCity("Ноябрьск");
 
-        Road_Builder builder_1 = new Road_Builder("Рабочий Винтик", 34, capital);
-        House_Builder builder_2 = new House_Builder("Рабочий Шпунтик", 34, capital);
-        PowerLine_Builder builder_3 = new PowerLine_Builder("Рабочий Серёга", 42, capital);
+        RoadBuilder builder_1 = new RoadBuilder("Рабочий Винтик", 34, capital);
+        HouseBuilder builder_2 = new HouseBuilder("Рабочий Шпунтик", 34, capital);
+        PowerLineBuilder builder_3 = new PowerLineBuilder("Рабочий Серёга", 42, capital);
         for (int i = 0; i<=30; i++) {
             CityObject road = builder_1.build();
             CityObject house = builder_2.build();
@@ -24,7 +24,7 @@ public class Main {
         Painter painter = new Painter( "маляр Валера", 32, noyabrsk);
         builder_2.travel(noyabrsk);
         CityObject house_2 = builder_2.build();
-        painter.paint((Colored) house_2, tubik.give_color());
+        painter.paint((Recolored) house_2, tubik.give_color());
 
     }
 }

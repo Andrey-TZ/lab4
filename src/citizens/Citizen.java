@@ -10,7 +10,7 @@ public abstract class Citizen implements InCity {
     private final int age;
     private final City native_city;
     private City city;
-    Citizen(String name, int age, City city){
+    public Citizen(String name, int age, City city){
         this.name = name;
         this.age = age;
         this.native_city = city;
