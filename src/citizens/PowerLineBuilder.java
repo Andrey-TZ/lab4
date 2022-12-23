@@ -1,5 +1,6 @@
 package citizens;
 
+import exceptions.WrongCityObjectException;
 import objects.CityObject;
 import objects.ObjectType;
 import objects.PowerLine;
@@ -17,7 +18,11 @@ public class PowerLineBuilder extends Citizen implements Renamed, Builder {
         City city = this.getCity();
         PowerLine pwr_line = new PowerLine(city);
         System.out.println(city);
-        System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.POWERLINE));
+        try{
+        System.out.println("Сейчас их здесь " + city.getAmountOfCityObjects(ObjectType.POWERLINE));}
+        catch (WrongCityObjectException e){
+            System.err.println(e.getMessage());
+        }
         return pwr_line;
     }
 

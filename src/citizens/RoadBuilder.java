@@ -1,5 +1,6 @@
 package citizens;
 
+import exceptions.WrongCityObjectException;
 import objects.CityObject;
 import objects.ObjectType;
 import objects.Road;
@@ -18,7 +19,11 @@ public class RoadBuilder extends Citizen implements Renamed, Builder {
             City city = this.getCity();
             Road road = new Road(city);
             System.out.println(city);
-            System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.ROAD));
+            try{
+            System.out.println("Сейчас их здесь " + city.getAmountOfCityObjects(ObjectType.ROAD));}
+            catch (WrongCityObjectException e){
+                System.err.println(e.getMessage());
+            }
             return road;
     }
 

@@ -1,6 +1,7 @@
 package cities;
 
 
+import exceptions.WrongCityObjectException;
 import utils.Renamed;
 
 import objects.ObjectType;
@@ -20,9 +21,11 @@ public abstract class City implements Renamed {
         return this.name;
     }
 
-    abstract public int getCityObjects(ObjectType type);
+    abstract public int getAmountOfCityObjects(ObjectType type) throws WrongCityObjectException;
 
-    abstract public void addCityObject(CityObject obj);
+    abstract public void addCityObject(CityObject obj) throws WrongCityObjectException;
+
+    abstract public CityObject[] getCityObjects(ObjectType type) throws WrongCityObjectException;
 
 
 

@@ -1,5 +1,6 @@
 package cities;
 
+import exceptions.WrongCityObjectException;
 import objects.House;
 import objects.PowerLine;
 import objects.Road;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class StandartCity extends City {
+    private final ObjectType[] types = {ObjectType.POWERLINE, ObjectType.ROAD, ObjectType.HOUSE};
     private final Road[] roads;
     private int i_roads = 0, i_houses = 0, i_powerlines = 0;
     private final House[] houses;
@@ -22,8 +24,9 @@ public class StandartCity extends City {
         this.powerlines = new PowerLine[powerlines];
 
     }
+
     @Override
-    public void addCityObject(CityObject obj) {
+    public void addCityObject(CityObject obj) throws WrongCityObjectException {
         ObjectType type = obj.getType();
         try {
             switch (type) {
@@ -43,17 +46,19 @@ public class StandartCity extends City {
                     System.out.print(" построл ЛЭП в городе ");
 
                 }
+                default -> throw new WrongCityObjectException();
             }
 
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.printf(" не смог построить \"%s\": их слишком много в городе ", type);
         }
-        catch (ArrayIndexOutOfBoundsException e){
-            System.out.printf(" не смог построить \"%s\": их слишком много в городе ", type);
-        }
+
     }
 
 
     @Override
-    public int getCityObjects(ObjectType type) {
+    public int getAmountOfCityObjects(ObjectType type) throws WrongCityObjectException {
         switch (type) {
             case ROAD -> {
                 return i_roads;
@@ -64,20 +69,25 @@ public class StandartCity extends City {
             case HOUSE -> {
                 return i_houses;
             }
+            default -> throw new WrongCityObjectException();
         }
-        return 0;
+
     }
 
-    public Road[] getRoads() {
-        return roads;
-    }
-
-    public House[] getHouses() {
-        return houses;
-    }
-
-    public PowerLine[] getPowerLines() {
-        return powerlines;
+    @Override
+    public CityObject[] getCityObjects(ObjectType type) throws WrongCityObjectException {
+        switch (type) {
+            case ROAD -> {
+                return roads;
+            }
+            case HOUSE -> {
+                return houses;
+            }
+            case POWERLINE -> {
+                return powerlines;
+            }
+            default -> throw new WrongCityObjectException();
+        }
     }
 
 
@@ -95,6 +105,10 @@ public class StandartCity extends City {
             return false;
         }
         StandartCity city1 = (StandartCity) city;
-        return city1.getName().equals(this.getName()) && Arrays.equals(city1.getHouses(), this.houses) && Arrays.equals(city1.getRoads(), this.roads) && Arrays.equals(city1.getPowerLines(), this.powerlines);
+        try {
+            return city1.getName().equals(this.getName()) && Arrays.equals(city1.getCityObjects(ObjectType.HOUSE), this.houses) && Arrays.equals(city1.getCityObjects(ObjectType.ROAD), this.roads) && Arrays.equals(city1.getCityObjects(ObjectType.POWERLINE), this.powerlines);
+        } catch (WrongCityObjectException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

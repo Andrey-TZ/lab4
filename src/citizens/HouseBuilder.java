@@ -1,5 +1,6 @@
 package citizens;
 
+import exceptions.WrongCityObjectException;
 import objects.CityObject;
 import objects.House;
 import objects.ObjectType;
@@ -17,7 +18,11 @@ public class HouseBuilder extends Citizen implements Builder, Renamed {
         City city = this.getCity();
         House house = new House(city);
         System.out.println(city);
-        System.out.println("Сейчас их здесь " + city.getCityObjects(ObjectType.HOUSE));
+        try{
+        System.out.println("Сейчас их здесь " + city.getAmountOfCityObjects(ObjectType.HOUSE));}
+        catch (WrongCityObjectException e){
+            System.err.println(e.getMessage());
+        }
         return house;
     }
 
