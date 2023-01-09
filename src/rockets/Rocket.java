@@ -2,6 +2,7 @@ package rockets;
 
 import citizens.Citizen;
 import exceptions.CrewOutOfIndexException;
+import exceptions.DifferentRocketException;
 import objects.SpacePort;
 import utils.Renamed;
 
@@ -12,11 +13,13 @@ public class Rocket implements Renamed {
     String name;
     SpacePort port;
     Citizen[] crew;
+    int size;
     int i_crew = 0;
     public Rocket(String name, SpacePort port, int crew_size){
         this.name = name;
         this.port = port;
         this.crew = new Citizen[crew_size];
+        size = crew_size;
     }
 
     public void add_crew_member(Citizen crew_member) throws CrewOutOfIndexException {
@@ -26,6 +29,14 @@ public class Rocket implements Renamed {
         }
         catch (ArrayIndexOutOfBoundsException e){
             throw new CrewOutOfIndexException();
+        }
+    }
+
+    public void move(SpacePort port) {
+        try {
+            port.add_rocket(this);
+        } catch (DifferentRocketException e) {
+            System.out.println("В космопорте " + port + " нет места!");
         }
     }
 
@@ -40,6 +51,10 @@ public class Rocket implements Renamed {
 
     public String getName() {
         return name;
+    }
+
+    public int getSize(){
+        return size;
     }
 
     public void clear_crew(){

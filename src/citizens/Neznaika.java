@@ -3,9 +3,10 @@ package citizens;
 import cities.City;
 
 import cities.StandartCity;
+import exceptions.FamousCitizenException;
 
 public class Neznaika extends Citizen{
-    private static boolean amount = false;
+    private static boolean exist = false;
     private Neznaika(int age, City city){super("Незнайка", age, city);}
 
     public City create_BigCity(String name){
@@ -25,11 +26,11 @@ public class Neznaika extends Citizen{
     }
 
     public static Neznaika create(int age, City city){
-        if (!amount) {
-            amount = true;
+        if (!exist) {
+            exist = true;
             return new Neznaika(age, city);
         }
         System.out.println("Такой горожанин уже есть!");
-        return null;
+        throw new FamousCitizenException();
     }
 }

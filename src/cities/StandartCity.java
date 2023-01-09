@@ -11,11 +11,11 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class StandartCity extends City {
-    private final ObjectType[] types = {ObjectType.POWERLINE, ObjectType.ROAD, ObjectType.HOUSE};
-    private final Road[] roads;
-    private int i_roads = 0, i_houses = 0, i_powerlines = 0;
-    private final House[] houses;
-    private final PowerLine[] powerlines;
+     final ObjectType[] types = {ObjectType.POWERLINE, ObjectType.ROAD, ObjectType.HOUSE};
+     Road[] roads;
+    int i_roads = 0, i_houses = 0, i_powerlines = 0;
+     House[] houses;
+     PowerLine[] powerlines;
 
     public StandartCity(String name, int roads, int houses, int powerlines) {
         super(name);
@@ -43,7 +43,7 @@ public class StandartCity extends City {
                 case POWERLINE -> {
                     powerlines[i_powerlines] = (PowerLine) obj;
                     i_powerlines++;
-                    System.out.print(" построл ЛЭП в городе ");
+                    System.out.print(" построил ЛЭП в городе ");
 
                 }
                 default -> throw new WrongCityObjectException();

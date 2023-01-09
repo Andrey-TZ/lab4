@@ -1,6 +1,7 @@
 package citizens;
 
 import cities.City;
+import exceptions.FamousCitizenException;
 import utils.Color;
 
 import java.util.Random;
@@ -19,7 +20,7 @@ public class Tubik extends Citizen {
             return new Tubik(age, city);
         }
         System.out.println("Такой горожанин уже есть!");
-        return null;
+        throw new FamousCitizenException();
     }
 
     public Color give_color() {

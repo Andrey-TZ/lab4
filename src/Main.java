@@ -1,12 +1,21 @@
+import exceptions.WrongCityObjectException;
 import objects.CityObject;
+import objects.SpacePort;
+import rockets.Rocket;
+import rockets.StandartRocket;
 import utils.Recolored;
 
 import cities.*;
 import citizens.*;
 
+import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) {
+
+
+        // lab_3
         StandartCity capital  = new StandartCity("Первый", 10, 10, 10);
         Neznaika neznaika = Neznaika.create(21, capital);
         City noyabrsk = neznaika.create_SmallCity("Ноябрьск");
@@ -25,6 +34,27 @@ public class Main {
         builder_2.travel(noyabrsk);
         CityObject house_2 = builder_2.build();
         painter.paint((Recolored) house_2, tubik.give_color());
+
+
+        // lab_4
+        Znaika znaika = Znaika.create(22, capital);
+        City vostochny = znaika.create_SmallCity("Восточный");
+        Builder spacePortBuilder_1 = new SpacePortBuilder("Юра", 35, vostochny);
+        CityObject vostochny_spacePort = spacePortBuilder_1.build();
+        znaika.travel(vostochny);
+        try{
+            StandartRocket soyuz = znaika.create_a_rocket("Союз-2.1а", vostochny_spacePort, 8);
+            System.out.println(soyuz.journal.get_notes());
+            Citizen[] group = {neznaika, znaika, (Citizen) spacePortBuilder_1};
+            soyuz.common_excursion(group, "Фуксия");
+            ArrayList<Citizen> all_guests = soyuz.journal.get_notes();
+            System.out.println("Журнал посещения " + soyuz);
+            System.out.println(all_guests);
+        }
+        catch (WrongCityObjectException e){
+            System.out.println(e.getMessage());
+        }
+
 
     }
 }

@@ -1,5 +1,6 @@
 package objects;
 
+import exceptions.DifferentRocketException;
 import exceptions.WrongCityObjectException;
 import cities.City;
 import rockets.Rocket;
@@ -8,18 +9,30 @@ import utils.InCity;
 
 public class SpacePort extends CityObject implements InCity {
     String name;
-    Rocket[] rockets;
-
-    public SpacePort(City city, String name, int max_rockets) {
+    Rocket rocket = null;
+    public SpacePort(City city){
         super(city, Color.GREY, ObjectType.SPACEPORT);
-        this.name = name;
-        try {
-            city.addCityObject(this);
-            this.rockets = new Rocket[max_rockets];
-        } catch (WrongCityObjectException e) {
+        this.name = city.getName();
+        try{
+        city.addCityObject(this);}
+        catch (WrongCityObjectException e){
             System.err.println("Космопорт не может быть построен в этом городе!");
         }
     }
+    public void add_rocket(Rocket rocket) throws DifferentRocketException {
+        if (rocket != null){
+            throw new DifferentRocketException();
+        }
+        else {
+            this.rocket = rocket;
+        }
+    }
+
+    public Rocket getRocket(){
+        return rocket;
+    }
+
+
 
 
 }
