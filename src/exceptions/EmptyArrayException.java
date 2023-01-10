@@ -1,6 +1,6 @@
 package exceptions;
 
-public class EmptyArrayException extends Error{
+public class EmptyArrayException extends IndexOutOfBoundsException{
     public EmptyArrayException(String message){
         super(message);
     }

@@ -55,7 +55,6 @@ public class StandartRocket extends Rocket {
             guests = new Citizen[getSize()];
         }
 
-
         public void addGuests(Citizen[] group) {
 
             guests = group;
@@ -74,24 +73,6 @@ public class StandartRocket extends Rocket {
         }
     }
 
-
-    public static class Journal {
-        private ArrayList<Citizen> all_guests = new ArrayList<>();
-
-        public void add_note(Citizen[] guests) {
-            for (int i = 0; i < guests.length; i++) {
-                if (guests[i] != null) {
-                    all_guests.add(guests[i]);
-                } else {
-                    break;
-                }
-            }
-        }
-
-        public ArrayList get_notes() {
-            return all_guests;
-        }
-    }
 
     class Excursion {
         private Citizen[] guests;
@@ -147,6 +128,29 @@ public class StandartRocket extends Rocket {
                 guide.speak_about_cabin(cabin);
             }
         }
+    }
 
+    public static class Journal {
+        private static ArrayList<Citizen> all_guests = new ArrayList<>();
+        private ArrayList<Citizen> guests_on_this_rocket = new ArrayList<>();
+        public void add_note(Citizen[] guests) {
+            for (int i = 0; i < guests.length; i++) {
+                if (guests[i] != null) {
+                    guests_on_this_rocket.add(guests[i]);
+                    all_guests.add(guests[i]);
+                } else {
+                    break;
+                }
+            }
+        }
+
+        public ArrayList get_notes_on_this_rocket(){
+            return guests_on_this_rocket;
+        }
+
+        public static ArrayList get_notes() {
+            return all_guests;
+        }
     }
 }
+

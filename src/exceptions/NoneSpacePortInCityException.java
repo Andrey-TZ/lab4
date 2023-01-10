@@ -1,4 +1,4 @@
 package exceptions;
 
-public class NoneSpacePortInCityException extends Error{
+public class NoneSpacePortInCityException extends RuntimeException{
 }
